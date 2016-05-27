@@ -144,7 +144,7 @@ module.exports = {
 			correct: null,
 		},
 		22: {
-			answer: 'Based on a novel by Robert A. Heinlein, this futuristic war film was an arachnophobics nightmare.',
+			answer: 'Based on a novel by Robert A. Heinlein, this futuristic war film is an arachnophobic\'s nightmare.',
 			question: 'What is Starship Toopers?',
 			score: 600,
 			correct: null,

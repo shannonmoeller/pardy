@@ -41,14 +41,15 @@ function render(state) {
 				})}
 			</ul>
 
-			${state.activeAnswer != null && state.activePlayer && html`
-				<button name="correct" value="1">Right</button>
-				<button name="correct" value="0">Wrong</button>
-			`}
-
 			${state.activeAnswer != null && html`
-				<button name="correct" value="0">Skip</button>
 				<button name="question">Reveal Question</button>
+
+				${state.activePlayer && html`
+					<button name="correct" value="1">Right</button>
+					<button name="correct" value="0">Wrong</button>
+				`}
+
+				<button name="correct" value="0">Skip</button>
 			`}
 		</div>
 	`;
