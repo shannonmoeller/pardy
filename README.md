@@ -2,7 +2,7 @@
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
-Trivia game.
+Websocket-based trivia game.
 
 ----
 
