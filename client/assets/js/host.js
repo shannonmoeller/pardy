@@ -35,6 +35,7 @@ function render(state) {
 						<li>
 							${players[id].name}
 							(${players[id].score})
+							${id === state.activePlayer && html`&bull;`}
 						</li>
 					`;
 				})}
