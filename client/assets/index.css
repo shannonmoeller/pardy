@@ -1,0 +1,12 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300';
+@import 'reset-css';
+
+@import './css/html.css';
+
+@import './css/answer.css';
+@import './css/btn.css';
+@import './css/pardy.css';
+@import './css/player.css';
+@import './css/question.css';
+@import './css/tbl.css';
+@import './css/vr.css';

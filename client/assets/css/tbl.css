@@ -1,0 +1,20 @@
+.tbl {
+	width: 100%;
+	border-spacing: 0.5rem;
+	border-collapse: separate;
+	table-layout: fixed;
+}
+
+.tbl > * > tr > td,
+.tbl > * > tr > th {
+	padding: 0.5rem;
+	width: 1%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.tbl-cell_fat {
+	background-color: hsla(0, 0%, 100%, 0.05);
+	color: hsl(60, 50%, 60%);
+	font-size: 2.4rem;
+}

@@ -1,0 +1,6 @@
+.question {
+	position: absolute;
+	left: 50%;
+	bottom: calc(10% + 3rem);
+	transform: translateX(-50%);
+}
