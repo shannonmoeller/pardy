@@ -1,6 +1,6 @@
 {
   "name": "pardy",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Websocket-based trivia game.",
   "license": "MIT",
   "repository": "shannonmoeller/pardy",
