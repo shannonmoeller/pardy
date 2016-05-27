@@ -16,4 +16,4 @@ Licensed under [MIT](http://shannonmoeller.com/mit.txt)
 
 [downloads-img]: http://img.shields.io/npm/dm/pardy.svg?style=flat-square
 [npm-img]:       http://img.shields.io/npm/v/pardy.svg?style=flat-square
-[npm-url]:       https://npmjs.org/package/whim
+[npm-url]:       https://npmjs.org/package/pardy
