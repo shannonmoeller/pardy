@@ -4,10 +4,6 @@
 
 Trivia game.
 
-### Test
-
-    $ npm test
-
 ----
 
 © Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)
