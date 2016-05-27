@@ -68,7 +68,7 @@ const game = deduce.composeStore({
 		const { correct } = data;
 		const { activeAnswer, activePlayer } = state;
 
-		if (activeAnswer == null || activePlayer == null) {
+		if (activeAnswer == null) {
 			return state;
 		}
 
@@ -77,13 +77,22 @@ const game = deduce.composeStore({
 			correct,
 		});
 
-		const player = state.players[activePlayer];
-		const localPlayer = Object.assign({}, player, {
-			score: player.score + (localAnswer.score * (correct ? 1 : -1)),
-		});
-
 		const answers = Object.assign({}, state.answers, {
 			[activeAnswer]: localAnswer,
+		});
+
+		if (activePlayer == null) {
+			return Object.assign({}, state, {
+				revealQuestion: false,
+				activeAnswer: null,
+				activePlayer: null,
+				answers,
+			});
+		}
+
+		const player = state.players[activePlayer];
+		const localPlayer = Object.assign({}, player, {
+			score: player.score + (answer.score * (correct ? 1 : -1)),
 		});
 
 		const players = Object.assign({}, state.players, {
@@ -92,7 +101,7 @@ const game = deduce.composeStore({
 
 		return Object.assign({}, state, {
 			revealQuestion: false,
-			activeAnswer: null,
+			activeAnswer: correct ? null : activeAnswer,
 			activePlayer: null,
 			answers,
 			players,

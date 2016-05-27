@@ -15,19 +15,20 @@ function render(state) {
 					<thead>
 						<tr>
 							${categories.map(function (category) {
-								return html`
-									<th>${category.label}</th>
-								`;
+								return html`<th>${category.label}</th>`;
 							})}
 						</tr>
 					</thead>
-					<tbody class="tbl-cell_fat">
+					<tbody>
 						${categories[0].answerIds.map(function (a, i) {
 							return html`
 								<tr>
 									${categories.map(function (category) {
 										return html`
-											<td>${answers[category.answerIds[i]].correct == null && answers[category.answerIds[i]].score}</td>
+											<td class="tbl-cell_fat">
+												${answers[category.answerIds[i]].correct == null
+													&& answers[category.answerIds[i]].score}
+											</td>
 										`;
 									})}
 								</tr>
@@ -36,16 +37,22 @@ function render(state) {
 					</tbody>
 				</table>
 
-				<ul>
-					${Object.keys(players).map(function (id) {
-						return html`
-							<li>
-								${players[id].name}
-								(${players[id].score})
-							</li>
-						`;
-					})}
-				</ul>
+				<table class="tbl">
+					<thead>
+						<tr>
+							${Object.keys(players).map(function (id) {
+								return html`<th>${players[id].name}</th>`;
+							})}
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							${Object.keys(players).map(function (id) {
+								return html`<td class="tbl-cell_fat">${players[id].score}</td>`;
+							})}
+						</tr>
+					</tbody>
+				</table>
 			`}
 
 			${state.activeAnswer != null && html`
