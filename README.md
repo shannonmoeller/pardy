@@ -4,6 +4,12 @@
 
 Websocket-based trivia game.
 
+# Requirements
+
+- Node 6+
+- NPM 3+
+- Evergreen Browser
+
 # Installation
 
     $ git clone https://github.com/shannonmoeller/pardy.git

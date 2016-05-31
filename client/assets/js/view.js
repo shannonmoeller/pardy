@@ -15,7 +15,7 @@ function render(state) {
 					<thead>
 						<tr>
 							${categories.map(function (category) {
-								return html`<th>${category.label}</th>`;
+								return html`<th>$${category.label}</th>`;
 							})}
 						</tr>
 					</thead>
@@ -27,7 +27,7 @@ function render(state) {
 										return html`
 											<td class="tbl-cell_fat">
 												<span class="${answers[category.answerIds[i]].correct != null && 'hidden'}">
-													${answers[category.answerIds[i]].score}
+													$${answers[category.answerIds[i]].score}
 												</span>
 											</td>
 										`;

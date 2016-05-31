@@ -19,11 +19,12 @@ function render(state) {
 					${categories.map(function (category) {
 						return html`
 							<li>
-								${category.label}<br/>
+								$${category.label}<br/>
 								${category.answerIds.map(function (id, i) {
 									return html`
-										<button ${answers[id].correct != null && 'disabled'} name="answer" value="${id}">
-											${answers[id].score}
+										<button name="answer" value="${id}"
+											${answers[id].correct != null && 'disabled'}>
+											$${answers[id].score}
 										</button>
 									`;
 								})}
@@ -55,7 +56,9 @@ function render(state) {
 						<button name="correct" value="0">Wrong</button>
 					`}
 
-					<button name="correct" value="0">Skip</button>
+					${!state.activePlayer && html`
+						<button name="correct" value="0">Skip</button>
+					`}
 				</div>
 			`}
 		</div>
@@ -72,18 +75,12 @@ function connectHost(socket) {
 				type: 'selectAnswer',
 				id: Number(ev.target.value),
 			});
-
-			ev.preventDefault();
-			ev.stopImmediatePropagation();
 		},
 
-		question: function (ev) {
+		question: function () {
 			socket.emit('action', {
 				type: 'revealQuestion',
 			});
-
-			ev.preventDefault();
-			ev.stopImmediatePropagation();
 		},
 
 		correct: function (ev) {
@@ -91,9 +88,6 @@ function connectHost(socket) {
 				type: 'resolveAnswer',
 				correct: Boolean(Number(ev.target.value)),
 			});
-
-			ev.preventDefault();
-			ev.stopImmediatePropagation();
 		},
 
 		kick: function (ev) {
@@ -101,20 +95,14 @@ function connectHost(socket) {
 				type: 'removePlayer',
 				id: ev.target.value,
 			});
-
-			ev.preventDefault();
-			ev.stopImmediatePropagation();
 		},
 
-		restart: function (ev) {
+		restart: function () {
 			if (confirm('Are you sure you want to restart?')) {
 				socket.emit('action', {
 					type: 'restart',
 				});
 			}
-
-			ev.preventDefault();
-			ev.stopImmediatePropagation();
 		},
 	};
 
@@ -123,6 +111,9 @@ function connectHost(socket) {
 
 		if (action in actions) {
 			actions[ev.target.name](ev);
+
+			ev.preventDefault();
+			ev.stopImmediatePropagation();
 		}
 	});
 
