@@ -22,19 +22,20 @@
     "express": "^4.13.4",
     "express-history-api-fallback": "^2.0.0",
     "morphdom": "^1.3.1",
-    "nodemon": "^1.9.2",
     "reset-css": "^2.0.2011012603",
     "socket.io": "^1.4.5",
     "uuid": "^2.0.2"
   },
   "devDependencies": {
     "browserify": "^13.0.1",
+    "nodemon": "^1.9.2",
     "postcss": "^5.0.21",
     "postcss-cli": "^2.5.2",
     "postcss-import": "^8.1.2"
   },
   "scripts": {
-    "start": "nodemon -i client index.js",
+    "start": "node index.js 3000",
+    "dev": "nodemon -i client index.js",
     "css": "nodemon -w client/assets/css -e css ./node_modules/.bin/postcss -u postcss-import -o client/assets/index.min.css client/assets/index.css",
     "js": "nodemon -w client/assets/js -e js ./node_modules/.bin/browserify -o client/assets/index.min.js client/assets/index.js"
   },

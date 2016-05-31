@@ -12,7 +12,7 @@ const io = socketIo(server);
 
 const root = path.resolve('client');
 const host = os.hostname();
-const port = 3000;
+const port = process.argv[2] || 3000;
 
 // serve static
 app.use(express.static(root));
