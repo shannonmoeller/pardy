@@ -10,4 +10,6 @@ var routes = {
 	view: require('./js/view'),
 };
 
-routes[route](io);
+if (route in routes) {
+	routes[route](io);
+}

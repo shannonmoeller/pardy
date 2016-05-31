@@ -10,6 +10,10 @@ function render(state) {
 
 	return html`
 		<div class="vr">
+			<div>
+				<button name="restart">Restart</button>
+			</div>
+
 			<div class="vList">
 				<ul>
 					${categories.map(function (category) {
@@ -62,8 +66,8 @@ function connectHost(socket) {
 	var el = document.querySelector('.js-pardy');
 	var host = util.getUser('host');
 
-	el.addEventListener('click', function (ev) {
-		if (ev.target.name === 'answer') {
+	var actions = {
+		answer: function (ev) {
 			socket.emit('action', {
 				type: 'selectAnswer',
 				id: Number(ev.target.value),
@@ -71,22 +75,18 @@ function connectHost(socket) {
 
 			ev.preventDefault();
 			ev.stopImmediatePropagation();
+		},
 
-			return;
-		}
-
-		if (ev.target.name === 'question') {
+		question: function (ev) {
 			socket.emit('action', {
 				type: 'revealQuestion',
 			});
 
 			ev.preventDefault();
 			ev.stopImmediatePropagation();
+		},
 
-			return;
-		}
-
-		if (ev.target.name === 'correct') {
+		correct: function (ev) {
 			socket.emit('action', {
 				type: 'resolveAnswer',
 				correct: Boolean(Number(ev.target.value)),
@@ -94,11 +94,9 @@ function connectHost(socket) {
 
 			ev.preventDefault();
 			ev.stopImmediatePropagation();
+		},
 
-			return;
-		}
-
-		if (ev.target.name === 'kick') {
+		kick: function (ev) {
 			socket.emit('action', {
 				type: 'removePlayer',
 				id: ev.target.value,
@@ -106,8 +104,25 @@ function connectHost(socket) {
 
 			ev.preventDefault();
 			ev.stopImmediatePropagation();
+		},
 
-			return;
+		restart: function (ev) {
+			if (confirm('Are you sure you want to restart?')) {
+				socket.emit('action', {
+					type: 'default',
+				});
+			}
+
+			ev.preventDefault();
+			ev.stopImmediatePropagation();
+		},
+	};
+
+	el.addEventListener('click', function (ev) {
+		var action = ev.target.name;
+
+		if (action in actions) {
+			actions[ev.target.name](ev);
 		}
 	});
 
