@@ -110,7 +110,7 @@ function connectHost(socket) {
 		var action = ev.target.name;
 
 		if (action in actions) {
-			actions[ev.target.name](ev);
+			actions[action](ev);
 
 			ev.preventDefault();
 			ev.stopImmediatePropagation();

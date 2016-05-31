@@ -4,11 +4,11 @@ var morphdom = require('morphdom');
 var uuid = require('uuid');
 
 exports.getUser = function (role) {
-	var idKey = 'pardy2.' + role + '.id';
-	var nameKey = 'pardy2.' + role + '.name';
+	var idKey = `pardy.${role}.id`;
+	var nameKey = `pardy.${role}.name`;
 
 	var id = localStorage.getItem(idKey) || uuid.v4().slice(0, 6);
-	var name = localStorage.getItem(nameKey) || prompt(role + ' name');
+	var name = localStorage.getItem(nameKey) || prompt(`${role} name`);
 
 	localStorage.setItem(idKey, id);
 	localStorage.setItem(nameKey, name);
@@ -60,7 +60,7 @@ exports.htmlEscape = function (str) {
 };
 
 exports.render = function (el, html) {
-	morphdom(el, '<div>' + html.trim() + '</div>', {
+	morphdom(el, `<div>${html.trim()}</div>`, {
 		childrenOnly: true,
 	});
 };
