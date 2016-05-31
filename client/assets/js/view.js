@@ -27,7 +27,7 @@ function render(state) {
 										return html`
 											<td class="tbl-cell_fat">
 												<span class="${answers[category.answerIds[i]].correct != null && 'hidden'}">
-													$${answers[category.answerIds[i]].score}
+													$${answers[category.answerIds[i]].score || '0'}
 												</span>
 											</td>
 										`;
@@ -49,7 +49,7 @@ function render(state) {
 					<tbody>
 						<tr>
 							${Object.keys(players).map(function (id) {
-								return html`<td class="tbl-cell_fat">$${players[id].score}</td>`;
+								return html`<td class="tbl-cell_fat">$${players[id].score || '0'}</td>`;
 							})}
 						</tr>
 					</tbody>

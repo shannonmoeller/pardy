@@ -24,7 +24,7 @@ function render(state) {
 									return html`
 										<button name="answer" value="${id}"
 											${answers[id].correct != null && 'disabled'}>
-											$${answers[id].score}
+											$${answers[id].score || '0'}
 										</button>
 									`;
 								})}
@@ -38,7 +38,7 @@ function render(state) {
 						return html`
 							<li>
 								$${players[id].name}
-								($${players[id].score})
+								($${players[id].score || '0'})
 								${id === state.activePlayer && html`&bull;`}<br/>
 								<button name="kick" value="${id}">Kick</button>
 							</li>
