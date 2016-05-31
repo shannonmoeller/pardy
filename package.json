@@ -34,7 +34,7 @@
     "postcss-import": "^8.1.2"
   },
   "scripts": {
-    "start": "node index.js 80",
+    "start": "node index.js",
     "dev": "nodemon -i client index.js",
     "css": "nodemon -w client/assets/css -e css ./node_modules/.bin/postcss -u postcss-import -o client/assets/index.min.css client/assets/index.css",
     "js": "nodemon -w client/assets/js -e js ./node_modules/.bin/browserify -o client/assets/index.min.js client/assets/index.js"
