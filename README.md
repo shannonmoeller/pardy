@@ -4,6 +4,18 @@
 
 Websocket-based trivia game.
 
+# Installation
+
+    $ git clone https://github.com/shannonmoeller/pardy.git
+    $ npm install
+    $ node index
+
+# Usage
+
+- Play: http://localhost:3000
+- Host: http://localhost:3000/host
+- Show: http://localhost:3000/view
+
 ----
 
 © Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)
