@@ -109,7 +109,7 @@ function connectHost(socket) {
 		restart: function (ev) {
 			if (confirm('Are you sure you want to restart?')) {
 				socket.emit('action', {
-					type: 'default',
+					type: 'restart',
 				});
 			}
 

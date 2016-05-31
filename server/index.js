@@ -117,6 +117,10 @@ const game = deduce.composeStore({
 			players,
 		});
 	},
+
+	restart() {
+		return Object.assign({}, initialState);
+	},
 });
 
 function connectUser(socket) {
