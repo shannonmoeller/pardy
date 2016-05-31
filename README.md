@@ -8,13 +8,13 @@ Websocket-based trivia game.
 
     $ git clone https://github.com/shannonmoeller/pardy.git
     $ npm install
-    $ node index
+    $ npm start
 
 # Usage
 
 - Play: http://localhost:3000
 - Host: http://localhost:3000/host
-- Show: http://localhost:3000/view
+- View: http://localhost:3000/view
 
 ----
 
