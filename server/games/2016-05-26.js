@@ -26,7 +26,7 @@ module.exports = {
 			correct: null,
 		},
 		3: {
-			answer: 'Creator of HTML and the internet as we know it.',
+			answer: 'Creator of HTML and the<br/>internet as we know it.',
 			question: 'Who is Tim Berners-Lee?',
 			score: 800,
 			correct: null,

@@ -1,0 +1,7 @@
+.vList {
+	display: flex;
+}
+
+.vList > * + * {
+	margin-left: 3rem;
+}

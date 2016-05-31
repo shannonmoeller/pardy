@@ -37,6 +37,16 @@ const game = deduce.composeStore({
 		});
 	},
 
+	removePlayer(state, data) {
+		const players = Object.assign({}, state.players);
+
+		delete players[data.id];
+
+		return Object.assign({}, state, {
+			players,
+		});
+	},
+
 	addViewer(state, data) {
 		return state;
 	},

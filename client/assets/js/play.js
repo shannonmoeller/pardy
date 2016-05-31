@@ -25,7 +25,7 @@ function connectPlayer(socket) {
 	var el = document.querySelector('.js-pardy');
 	var player = util.getUser('player');
 
-	el.addEventListener('touchstart', function (ev) {
+	function selectPlayer(ev) {
 		socket.emit('action', {
 			type: 'selectPlayer',
 			id: player.id,
@@ -33,14 +33,10 @@ function connectPlayer(socket) {
 
 		ev.preventDefault();
 		ev.stopImmediatePropagation();
-	});
+	}
 
-	el.addEventListener('click', function (ev) {
-		socket.emit('action', {
-			type: 'selectPlayer',
-			id: player.id,
-		});
-	});
+	el.addEventListener('touchstart', selectPlayer);
+	el.addEventListener('click', selectPlayer);
 
 	socket.on('update', function (state) {
 		util.render(el, render(state));

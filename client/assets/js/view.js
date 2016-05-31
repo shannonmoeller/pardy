@@ -26,8 +26,9 @@ function render(state) {
 									${categories.map(function (category) {
 										return html`
 											<td class="tbl-cell_fat">
-												${answers[category.answerIds[i]].correct == null
-													&& answers[category.answerIds[i]].score}
+												<span class="${answers[category.answerIds[i]].correct != null && 'hidden'}">
+													${answers[category.answerIds[i]].score}
+												</span>
 											</td>
 										`;
 									})}

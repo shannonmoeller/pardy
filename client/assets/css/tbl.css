@@ -13,6 +13,10 @@
 	vertical-align: middle;
 }
 
+.tbl > * > tr > th {
+	padding-top: 0;
+}
+
 .tbl-cell_fat {
 	background-color: hsla(0, 0%, 100%, 0.05);
 	color: hsl(60, 50%, 60%);

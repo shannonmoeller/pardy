@@ -1,0 +1,8 @@
+.hidden {
+	visibility: hidden;
+}
+
+.disabled,
+:disabled {
+	opacity: 0.2;
+}

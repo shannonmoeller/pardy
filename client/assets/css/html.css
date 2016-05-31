@@ -18,3 +18,7 @@ body {
 a {
 	color: hsl(60, 50%, 60%);
 }
+
+li + li {
+	margin-top: 1.6rem;
+}

@@ -10,46 +10,49 @@ function render(state) {
 
 	return html`
 		<div class="vr">
-			<ul>
-				${categories.map(function (category) {
-					return html`
-						<li>
-							${category.label}<br/>
-							${category.answerIds.map(function (id, i) {
-								if (answers[id].correct == null) {
+			<div class="vList">
+				<ul>
+					${categories.map(function (category) {
+						return html`
+							<li>
+								${category.label}<br/>
+								${category.answerIds.map(function (id, i) {
 									return html`
-										<button name="answer" value="${id}">
+										<button ${answers[id].correct != null && 'disabled'} name="answer" value="${id}">
 											${answers[id].score}
 										</button>
 									`;
-								}
-							})}
-						</li>
-					`;
-				})}
-			</ul>
+								})}
+							</li>
+						`;
+					})}
+				</ul>
 
-			<ul>
-				${Object.keys(players).map(function (id) {
-					return html`
-						<li>
-							${players[id].name}
-							(${players[id].score})
-							${id === state.activePlayer && html`&bull;`}
-						</li>
-					`;
-				})}
-			</ul>
+				<ul>
+					${Object.keys(players).map(function (id) {
+						return html`
+							<li>
+								${players[id].name}
+								(${players[id].score})
+								${id === state.activePlayer && html`&bull;`}<br/>
+								<button name="kick" value="${id}">Kick</button>
+							</li>
+						`;
+					})}
+				</ul>
+			</div>
 
 			${state.activeAnswer != null && html`
-				<button name="question">Reveal Question</button>
+				<div>
+					<button name="question">Reveal Question</button>
 
-				${state.activePlayer && html`
-					<button name="correct" value="1">Right</button>
-					<button name="correct" value="0">Wrong</button>
-				`}
+					${state.activePlayer && html`
+						<button name="correct" value="1">Right</button>
+						<button name="correct" value="0">Wrong</button>
+					`}
 
-				<button name="correct" value="0">Skip</button>
+					<button name="correct" value="0">Skip</button>
+				</div>
 			`}
 		</div>
 	`;
@@ -87,6 +90,18 @@ function connectHost(socket) {
 			socket.emit('action', {
 				type: 'resolveAnswer',
 				correct: Boolean(Number(ev.target.value)),
+			});
+
+			ev.preventDefault();
+			ev.stopImmediatePropagation();
+
+			return;
+		}
+
+		if (ev.target.name === 'kick') {
+			socket.emit('action', {
+				type: 'removePlayer',
+				id: ev.target.value,
 			});
 
 			ev.preventDefault();
