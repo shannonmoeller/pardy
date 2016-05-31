@@ -42,14 +42,14 @@ function render(state) {
 					<thead>
 						<tr>
 							${Object.keys(players).map(function (id) {
-								return html`<th>${players[id].name}</th>`;
+								return html`<th>$${players[id].name}</th>`;
 							})}
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							${Object.keys(players).map(function (id) {
-								return html`<td class="tbl-cell_fat">${players[id].score}</td>`;
+								return html`<td class="tbl-cell_fat">$${players[id].score}</td>`;
 							})}
 						</tr>
 					</tbody>
@@ -69,7 +69,7 @@ function render(state) {
 
 				${state.activePlayer != null && html`
 					<div class="player">
-						${state.players[state.activePlayer].name}
+						$${state.players[state.activePlayer].name}
 					</div>
 				`}
 			`}

@@ -14,8 +14,8 @@ function render(state) {
 	return html`
 		<div class="vr">
 			<button class="btn ${id === state.activePlayer && 'btn_yep'}">
-				${player.name}<br />
-				(${player.score || 0})
+				$${player.name}<br />
+				($${player.score || 0})
 			</button>
 		</div>
 	`;

@@ -36,8 +36,8 @@ function render(state) {
 					${Object.keys(players).map(function (id) {
 						return html`
 							<li>
-								${players[id].name}
-								(${players[id].score})
+								$${players[id].name}
+								($${players[id].score})
 								${id === state.activePlayer && html`&bull;`}<br/>
 								<button name="kick" value="${id}">Kick</button>
 							</li>
