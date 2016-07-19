@@ -10,7 +10,7 @@ function render(state) {
 	var answers = state.answers;
 	var players = state.players;
 	var activeRound = state.activeRound;
-	var activeCategories = categories.filter(cat => cat.round === activeRound);
+	var activeCategories = categories.filter(function (cat) { return cat.round === activeRound; });
 	var activeAnswer = state.activeAnswer;
 	var isFinalStarted = state.isFinalStarted;
 	var isFinalEnded = state.isFinalEnded;
@@ -25,7 +25,7 @@ function render(state) {
 					Decrease Round
 				</button>
 			</div>
-			
+
 			<!-- iterate over all categories and present buttons to activate the questions -->
 			<div class="vList">
 				<ul>
@@ -63,7 +63,7 @@ function render(state) {
 												</button><br/>
 												<audio ${(activeAnswer !== null || !isFinalStarted) && 'controls'}>
 													<source src="assets/media/audio/song.mp3" type="audio/mp3">
-												</audio>	
+												</audio>
 											`
 										}
 									})}
@@ -82,15 +82,15 @@ function render(state) {
 								($${players[id].score || '0'})
 								${id === state.activePlayer && html`&bull;`}<br/>
 								<button name="kick" value="${id}">Kick</button>
-								
-								
-								<!-- If final round, display bet status. Begin final round when all user's bets are 
+
+
+								<!-- If final round, display bet status. Begin final round when all user's bets are
 								locked in. -->
 								${activeRound === 2 && players[id].score <= 0 && html`
 									Does not qualify for Final.
 								`}
-								${activeRound === 2 && 
-									players[id].score > 0 && 
+								${activeRound === 2 &&
+									players[id].score > 0 &&
 									!isFinalStarted &&
 									html`
 									${!players[id].isFinalBetLockedIn && html`Final Bet is not locked in`}
@@ -112,12 +112,12 @@ function render(state) {
 				${state.activeAnswer != null && html`
 					<div>
 						<button name="question">Reveal Question</button>
-	
+
 						${state.activePlayer && html`
 							<button name="correct" value="1">Right</button>
 							<button name="correct" value="0">Wrong</button>
 						`}
-	
+
 						${!state.activePlayer && html`
 							<button name="correct" value="0">Skip</button>
 						`}
@@ -126,7 +126,7 @@ function render(state) {
 			`}
 		</div>
 
-			
+
 	`;
 }
 

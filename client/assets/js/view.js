@@ -6,7 +6,7 @@ var { html } = util;
 function render(state) {
 	var categories = state.categories;
 	var activeRound = state.activeRound;
-	var activeCategories = categories.filter(cat => cat.round === activeRound);
+	var activeCategories = categories.filter(function (cat) { return cat.round === activeRound; });
 	var activeAnswer = state.activeAnswer;
 	var answers = state.answers;
 	var players = state.players;
@@ -30,7 +30,7 @@ function render(state) {
 						${categories[0].answerIds.map(function (a, i) {
 			return html`
 								<tr>
-								${activeCategories.map(category => {
+								${activeCategories.map(function (category) {
 				return html`<td class="tbl-cell_fat">
 										<span class="${answers[category.answerIds[i]].correct != null && 'hidden'}">
 											$${answers[category.answerIds[i]].score || '0'}
@@ -62,8 +62,8 @@ function render(state) {
 			`}
 
 			${activeAnswer != null &&
-				 (!(state.answers[activeAnswer].isDouble) || 
-			     (state.answers[activeAnswer].isDouble && state.answers[activeAnswer].isBetLockedIn)) && 
+				 (!(state.answers[activeAnswer].isDouble) ||
+			     (state.answers[activeAnswer].isDouble && state.answers[activeAnswer].isBetLockedIn)) &&
 				 html`
 				<div class="answer">
 					${state.answers[state.activeAnswer].answer}
@@ -79,26 +79,26 @@ function render(state) {
 					<div class="player">
 						$${state.players[state.activePlayer].name}
 					</div>
-				`}					
+				`}
 			`}
-			${activeAnswer != null && 
-		      state.answers[activeAnswer].isDouble && 
+			${activeAnswer != null &&
+		      state.answers[activeAnswer].isDouble &&
 		      !state.answers[activeAnswer].isBetLockedIn && html`
 				<div class="answer">
 					Double Webpardy!<br/>
 				</div>
 			`}
-			
+
 		</div>
 	`;
 	} else {
 		return html`
-			
+
 			<!-- answer has not been revealed yet, show round.  Players will be making bets.-->
 			${!activeAnswer && html`
 				<h1>Final Webpardy!</h1>
 			`}
-			
+
 			<!--answer is revealed-->
 			${activeAnswer != null &&
 				!isFinalEnded && html`
@@ -106,7 +106,7 @@ function render(state) {
 					${state.answers[state.activeAnswer].answer}
 				</div>
 			`}
-			
+
 
 		`;
 	}
