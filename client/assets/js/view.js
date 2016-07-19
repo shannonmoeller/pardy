@@ -4,14 +4,14 @@ var util = require('./util');
 var { html } = util;
 
 function render(state) {
-	const categories = state.categories;
-	const activeRound = state.activeRound;
-	const activeCategories = categories.filter(cat => cat.round === activeRound);
-	const activeAnswer = state.activeAnswer;
-	const answers = state.answers;
-	const players = state.players;
-	const isFinalStarted = state.isFinalStarted;
-	const isFinalEnded = state.isFinalEnded;
+	var categories = state.categories;
+	var activeRound = state.activeRound;
+	var activeCategories = categories.filter(cat => cat.round === activeRound);
+	var activeAnswer = state.activeAnswer;
+	var answers = state.answers;
+	var players = state.players;
+	var isFinalStarted = state.isFinalStarted;
+	var isFinalEnded = state.isFinalEnded;
 
 	// If not final jeopardy
  	if (activeRound < 2) {

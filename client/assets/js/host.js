@@ -1,19 +1,19 @@
 /*
  * The view for the host screen.
  */
-const util = require('./util');
-const { html } = util;
+var util = require('./util');
+var { html } = util;
 
 function render(state) {
 
-	const categories = state.categories;
-	const answers = state.answers;
-	const players = state.players;
-	const activeRound = state.activeRound;
-	const activeCategories = categories.filter(cat => cat.round === activeRound);
-	const activeAnswer = state.activeAnswer;
-	let isFinalStarted = state.isFinalStarted;
-	const isFinalEnded = state.isFinalEnded;
+	var categories = state.categories;
+	var answers = state.answers;
+	var players = state.players;
+	var activeRound = state.activeRound;
+	var activeCategories = categories.filter(cat => cat.round === activeRound);
+	var activeAnswer = state.activeAnswer;
+	var isFinalStarted = state.isFinalStarted;
+	var isFinalEnded = state.isFinalEnded;
 	return html`
 		<div class="vr">
 			<div>

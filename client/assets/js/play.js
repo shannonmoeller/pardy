@@ -2,24 +2,24 @@
  * This is the view presented to the player on their mobile device.
  */
 
-const util = require('./util');
-const { html } = util;
+var util = require('./util');
+var { html } = util;
 var debounce = require('lodash');
 
 function render(state) {
-	const id = util.getUser('player').id;
-	const player = state.players[id];
-	const score = player.score;
-	const isFinalBetLockedIn = player.isFinalBetLockedIn;
-	const isFinalAnswerLockedIn = player.isFinalAnswerLockedIn;
-	let finalAnswer = player.finalAnswer;
-	const localAnswer = localStorage.getItem('pardy.finalAnswer');
+	var id = util.getUser('player').id;
+	var player = state.players[id];
+	var score = player.score;
+	var isFinalBetLockedIn = player.isFinalBetLockedIn;
+	var isFinalAnswerLockedIn = player.isFinalAnswerLockedIn;
+	var finalAnswer = player.finalAnswer;
+	var localAnswer = localStorage.getItem('pardy.finalAnswer');
 	if(finalAnswer !== localAnswer && localAnswer !== undefined) {
 		finalAnswer = localAnswer
 	}
 
-	let finalBet = player.finalBet;
-	const localBet = localStorage.getItem('pardy.finalBet');
+	var finalBet = player.finalBet;
+	var localBet = localStorage.getItem('pardy.finalBet');
 	if(finalBet !== localBet && localBet !== undefined) {
 		finalBet = localBet;
 	}
