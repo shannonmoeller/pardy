@@ -29,7 +29,7 @@ const game = deduce.composeStore({
 		const player = state.players[data.id] || {
 			id: data.id,
 			name: data.name,
-			score: 200,
+			score: 0,
 			finalBet: 0,
 			isFinalBetLockedIn: false,
 			finalQuestion: ''
