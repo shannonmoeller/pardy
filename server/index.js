@@ -1,11 +1,14 @@
 const deduce = require('deduce');
-const initialState = require('./games/2016-05-26');
+const initialState = require('./games/2016-07-19');
 
 const game = deduce.composeStore({
+
+	// Configure initial store
 	default(state = initialState) {
 		return Object.assign({}, state);
 	},
 
+	// Add a new host
 	addHost(state, data) {
 		const hostExists = Boolean(state.host);
 
@@ -21,13 +24,16 @@ const game = deduce.composeStore({
 		});
 	},
 
+	// Add a new player
 	addPlayer(state, data) {
-		const player = {
+		const player = state.players[data.id] || {
 			id: data.id,
 			name: data.name,
 			score: 0,
+			finalBet: 0,
+			isFinalBetLockedIn: false,
+			finalQuestion: ''
 		};
-
 		const players = Object.assign({}, state.players, {
 			[data.id]: player,
 		});
@@ -37,6 +43,7 @@ const game = deduce.composeStore({
 		});
 	},
 
+	// Remove a player (kick)
 	removePlayer(state, data) {
 		const players = Object.assign({}, state.players);
 
@@ -47,17 +54,21 @@ const game = deduce.composeStore({
 		});
 	},
 
+	// Add Viewer
 	addViewer(state, data) {
 		return state;
 	},
 
+	// select and answer.  Done as host.
 	selectAnswer(state, data) {
 		return Object.assign({}, state, {
 			activeAnswer: data.id,
 			activePlayer: null,
+			isFinal: state.activeRound === 2
 		});
 	},
 
+	// select active player
 	selectPlayer(state, data) {
 		if (state.activeAnswer == null || state.activePlayer != null) {
 			return state;
@@ -68,12 +79,89 @@ const game = deduce.composeStore({
 		});
 	},
 
+	// Change Daily Double bet
+	changeDoubleBet(state, data) {
+		const { activeAnswer } = state;
+		const score = data.score;
+		if (activeAnswer == null) {
+			return state;
+		}
+
+		const answer = state.answers[activeAnswer];
+		const localAnswer = Object.assign({}, answer, {
+			score
+		});
+
+		const answers = Object.assign({}, state.answers, {
+			[activeAnswer]: localAnswer
+		});
+
+		return Object.assign({}, state, {
+			answers,
+		});
+	},
+
+	// Lock in daily double bet
+	lockInDoubleBet(state, data) {
+		const { activeAnswer } = state;
+		const isBetLockedIn = true;
+		if (activeAnswer == null) {
+			return state;
+		}
+
+		const answer = state.answers[activeAnswer];
+		const localAnswer = Object.assign({}, answer, {
+			isBetLockedIn
+		});
+
+		const answers = Object.assign({}, state.answers, {
+			[activeAnswer]: localAnswer
+		});
+
+		return Object.assign({}, state, {
+			answers,
+		});
+	},
+
+	// Lock in Final Pardy bet
+	lockInFinalBet(state, data) {
+		const player = state.players[data.id];
+		const localPlayer = Object.assign({}, player, {
+			isFinalBetLockedIn: true,
+			finalBet: data.finalBet
+		});
+		const players =  Object.assign({}, state.players, {
+			[data.id]: localPlayer,
+		});
+		return Object.assign({}, state, {
+			players,
+		});
+	},
+
+
+	// Lock in Final Pardy Answer
+	lockInFinalAnswer(state, data) {
+		const player = state.players[data.id];
+		const localPlayer = Object.assign({}, player, {
+			isFinalAnswerLockedIn: true,
+			finalAnswer: data.finalAnswer
+		});
+		const players =  Object.assign({}, state.players, {
+			[data.id]: localPlayer,
+		});
+		return Object.assign({}, state, {
+			players,
+		});
+	},
+
+	// Reveal the question to the answer
 	revealQuestion(state) {
 		return Object.assign({}, state, {
 			revealQuestion: !state.revealQuestion,
 		});
 	},
 
+	// Resolve the answer, giving points as necesarry
 	resolveAnswer(state, data) {
 		const { correct } = data;
 		const { activeAnswer, activePlayer } = state;
@@ -101,10 +189,10 @@ const game = deduce.composeStore({
 		}
 
 		const player = state.players[activePlayer];
+		const score = player.score || 0;
 		const localPlayer = Object.assign({}, player, {
-			score: player.score + (answer.score * (correct ? 1 : -1)),
+			score: score + (answer.score * (correct ? 1 : -1)),
 		});
-
 		const players = Object.assign({}, state.players, {
 			[activePlayer]: localPlayer,
 		});
@@ -118,8 +206,35 @@ const game = deduce.composeStore({
 		});
 	},
 
+	decreaseRound(state) {
+		return Object.assign({}, state, {
+			activeRound: state.activeRound - 1,
+			isFinal: false
+		});
+	},
+
+	increaseRound(state) {
+		return Object.assign({}, state, {
+			activeRound: state.activeRound + 1,
+			isFinal: state.activeRound + 1 === 2
+		});
+	},
+
 	restart() {
 		return Object.assign({}, initialState);
+	},
+
+	startFinal(state) {
+		console.log('startFinal');
+		return Object.assign({}, state, {
+			isFinalStarted: true,
+		});
+	},
+
+	endFinal(state) {
+		return Object.assign({}, state, {
+			isFinalEnded: true,
+		});
 	},
 });
 
