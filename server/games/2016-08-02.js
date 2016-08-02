@@ -42,7 +42,7 @@ module.exports = {
 			question: "Cambridge, MA; Sophia-Antipolis, France; Keio University, Tokyo, Japan; Beihang University, Beijing, China",
 			score: 500,
 			correct: null
-		}
+		},
 
 		5: {
 			answer: "Don't go under a certain speed, again.",
@@ -110,31 +110,31 @@ module.exports = {
 			answer: "*",
 			question: "0 0 0 0",
 			score: 100,
-			correct: null;
+			correct: null
 		},
 		16: {
 			answer: "* > li",
 			question: "0 0 0 1",
 			score: 200,
-			correct: null;
+			correct: null
 		},
 		17: {
 			answer: "li > div > .media + .media",
 			question: "0 0 2 2",
 			score: 300,
-			correct: null;
+			correct: null
 		},
 		18: {
 			answer: "input[type='radio'] ~ .last:first-child",
 			question: "0 0 3 1",
 			score: 400,
-			correct: null;
+			correct: null
 		},
 		19: {
 			answer: ".thisIs .against .our #standards #never.ever .do .this !important",
 			question: "0 2 6 1",
 			score: 500,
-			correct: null;
+			correct: null
 		},
 
 		20: {
@@ -326,7 +326,7 @@ module.exports = {
 		50: {
 			answer: "The official designation for the trooper who yells 'Traitor' in The Force Awakens. ",
 			question: "FN-2199",
-			score: ,
+			score: 0,
 			correct: null
 		},
 	},
