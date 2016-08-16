@@ -1,5 +1,5 @@
 const deduce = require('deduce');
-const initialState = require('./games/2016-08-02');
+const initialState = require('./games/2016-08-16');
 
 const game = deduce.composeStore({
 
