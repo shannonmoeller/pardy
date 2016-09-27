@@ -15,6 +15,7 @@ module.exports = {
 	answers: {
 		0: {
 			answer: 'HTML',
+			answerImage: '/images/myImage.jpg',
 			question: 'What is HyperText Markup Language?',
 			score: 200,
 			correct: null,
