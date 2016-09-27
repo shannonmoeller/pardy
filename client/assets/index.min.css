@@ -73,6 +73,9 @@ li + li {
 .answer pre {
 	text-align: left;
 }
+.answer-image {
+    max-width: 500px;
+}
 .btn {
 	height: 85vh;
 	width: 90vw;

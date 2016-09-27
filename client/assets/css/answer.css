@@ -6,3 +6,7 @@
 .answer pre {
 	text-align: left;
 }
+
+.answer-image {
+    max-width: 500px;
+}

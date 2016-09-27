@@ -1,5 +1,7 @@
 'use strict';
 
+//Client side routing
+
 var socketIo = require('socket.io-client');
 
 var io = socketIo();
