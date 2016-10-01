@@ -1,7 +1,7 @@
 'use strict';
 
 const deduce = require('deduce');
-const initialState = require('./games/2016-09-27');
+const initialState = require('./games/2016-10-04');
 
 const game = deduce.composeStore({
 
