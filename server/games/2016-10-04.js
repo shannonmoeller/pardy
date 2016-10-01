@@ -10,6 +10,7 @@ module.exports = {
     isFinal: false,
     isFinalStarted: false,
     isFinalEnded: false,
+    isFinalScored: false,
 
 
     answers: {

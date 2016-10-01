@@ -12,7 +12,7 @@ function render(state) {
     var players = state.players;
     var isFinalStarted = state.isFinalStarted;
     var isFinalEnded = state.isFinalEnded;
-    console.log(activeCategories);
+    var isFinalScored = state.isFinalScored;
 
     // If not final jeopardy
     if (activeRound < 2) {
@@ -126,6 +126,37 @@ function render(state) {
                 <div class="answer">
                     ${state.answers[state.activeAnswer].answer}
                 </div>
+            `}
+
+            <!-- Host is Scoring final round -->
+            ${!isFinalScored &&
+                isFinalEnded && html`
+                <h1>Please standby as the host scores the final round.</h1>
+            `}
+
+            <!--Game over: final scores displayed-->
+            ${isFinalScored && html`
+                <table class="tbl">
+                    <thead>
+                        <tr>
+                            ${Object.keys(players).map(function (id) {
+                                return html`<th>$${players[id].name}</th>`;
+                            })}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            ${Object.keys(players).map(function (id) {
+                                return html`<td class="tbl-cell_tall answer-final">$${players[id].finalAnswer}</td>`;
+                            })}
+                        </tr>
+                        <tr>
+                            ${Object.keys(players).map(function (id) {
+                                return html`<td class="tbl-cell_fat">$${players[id].score || '0'}</td>`;
+                            })}
+                        </tr>
+                    </tbody>
+                </table>
             `}
 
 
