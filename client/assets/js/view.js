@@ -101,7 +101,24 @@ function render(state) {
             <!-- answer has not been revealed yet, show round.  Players will be making bets.-->
             ${!activeAnswer && html`
                 <h1>${activeCategories[0].label}</h1>
+                <table class="tbl attach_bottom">
+                    <thead>
+                        <tr>
+                            ${Object.keys(players).map(function (id) {
+                                return html`<th>$${players[id].name}</th>`;
+                            })}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            ${Object.keys(players).map(function (id) {
+                                return html`<td class="tbl-cell_fat">$${players[id].score || '0'}</td>`;
+                            })}
+                        </tr>
+                    </tbody>
+                </table>
             `}
+
 
             <!--answer is revealed-->
             ${activeAnswer != null &&
