@@ -1,12 +1,12 @@
 'use strict';
 
 const deduce = require('deduce');
-const initialState = require('./games/2016-09-27');
+const initialState = require('./games/2016-10-04');
 
 const game = deduce.composeStore({
 
 	// Configure initial store
-	default(state = initialState) {
+	default(state = initialState) {		
 		return Object.assign({}, state);
 	},
 
@@ -34,7 +34,8 @@ const game = deduce.composeStore({
 			score: 0,
 			finalBet: 0,
 			isFinalBetLockedIn: false,
-			finalQuestion: ''
+			finalQuestion: '',
+			finalQuestionScored: false,
 		};
 		const players = Object.assign({}, state.players, {
 			[data.id]: player,
@@ -211,14 +212,17 @@ const game = deduce.composeStore({
 	decreaseRound(state) {
 		return Object.assign({}, state, {
 			activeRound: state.activeRound - 1,
-			isFinal: false
+			isFinal: false,
+			isFinalStarted: false,
+		    isFinalEnded: false,
+		    isFinalScored: false,
 		});
 	},
 
 	increaseRound(state) {
 		return Object.assign({}, state, {
 			activeRound: state.activeRound + 1,
-			isFinal: state.activeRound + 1 === 2
+			isFinal: state.activeRound + 1 === 2,
 		});
 	},
 
@@ -227,7 +231,6 @@ const game = deduce.composeStore({
 	},
 
 	startFinal(state) {
-		console.log('startFinal');
 		return Object.assign({}, state, {
 			isFinalStarted: true,
 		});
@@ -236,6 +239,44 @@ const game = deduce.composeStore({
 	endFinal(state) {
 		return Object.assign({}, state, {
 			isFinalEnded: true,
+		});
+	},
+
+	addWager(state, data) {
+		const player = state.players[data.id];
+		const score = player.score || 0;
+		const localPlayer = Object.assign({}, player, {
+			finalQuestionScored: true,
+			score: score + Number(player.finalBet),
+		});
+		const players =  Object.assign({}, state.players, {
+			[data.id]: localPlayer,
+		});
+
+		return Object.assign({}, state, {
+			players,
+		});
+	},
+
+	subtractWager(state, data) {
+		const player = state.players[data.id];
+		const score = player.score || 0;
+		const localPlayer = Object.assign({}, player, {
+			finalQuestionScored: true,
+			score: score - Number(player.finalBet)
+		});
+		const players =  Object.assign({}, state.players, {
+			[data.id]: localPlayer,
+		});
+
+		return Object.assign({}, state, {
+			players,
+		});
+	},
+
+	showFinalScores(state) {
+		return Object.assign({}, state, {
+			isFinalScored: true
 		});
 	},
 });

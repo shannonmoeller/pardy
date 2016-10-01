@@ -10,3 +10,8 @@
 .answer-image {
     max-width: 500px;
 }
+
+.answer-final {
+	font-size: 1rem;
+    font-family: "Chalkduster", "Roboto";
+}

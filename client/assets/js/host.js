@@ -14,6 +14,7 @@ function render(state) {
 	var activeAnswer = state.activeAnswer;
 	var isFinalStarted = state.isFinalStarted;
 	var isFinalEnded = state.isFinalEnded;
+	var isFinalScored = state.isFinalScored;
 	return html`
 		<div class="vr">
 			<div>
@@ -84,8 +85,7 @@ function render(state) {
 								<button name="kick" value="${id}">Kick</button>
 
 
-								<!-- If final round, display bet status. Begin final round when all user's bets are
-								locked in. -->
+								<!-- If final round, display bet status. Begin final round when all user's bets are locked in. -->
 								${activeRound === 2 && players[id].score <= 0 && html`
 									Does not qualify for Final.
 								`}
@@ -98,14 +98,22 @@ function render(state) {
 								`}
 								<!--Needs improvement!-->
 								${activeRound === 2 && isFinalEnded && html`
-									Final Answer:${players[id].finalAnswer}<br>
-									Final Bet:${players[id].finalBet}<br>
-									Incorrect: ${Number(players[id].score) - Number(players[id].finalBet)}<br>
-									Correct: ${Number(players[id].score) + Number(players[id].finalBet)}
+									Final Answer:${players[id].finalAnswer}<br />
+									${!players[id].finalQuestionScored && html`
+										Final Bet:${players[id].finalBet}<br />
+										<button name="addWager" value="${id}">Right</button> |
+										<button name="subtractWager" value="${id}">Wrong</button><br />
+									`}
+									
 								`}
 						</li>
 						`;
 					})}
+					<li>
+						${activeRound === 2 && isFinalEnded && !isFinalScored && html`
+							<button name="showFinalScores" value="0">Complete Scoring</button>
+						`}
+					</li>
 				</ul>
 			</div>
 			${activeRound !== 2 && html`
@@ -194,6 +202,23 @@ function connectHost(socket) {
 		endFinal: function () {
 			socket.emit('action', {
 				type: 'endFinal',
+			});
+		},
+		addWager: function(ev) {
+			socket.emit('action', {
+				type: 'addWager',
+				id: ev.target.value,
+			});
+		},
+		subtractWager: function(ev) {
+			socket.emit('action', {
+				type: 'subtractWager',
+				id: ev.target.value,
+			});
+		},
+		showFinalScores: function() {
+			socket.emit('action', {
+				type: 'showFinalScores',
 			});
 		},
 	};

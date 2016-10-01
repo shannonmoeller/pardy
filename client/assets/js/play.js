@@ -27,7 +27,7 @@ function render(state) {
 	if (!player) {
 		return location.reload();
 	}
-	console.log(player);
+
 	// If its final jeopardy
 	if(state.activeRound === 2) {
 		// if the player has a score of zero or less, the player is disqualified

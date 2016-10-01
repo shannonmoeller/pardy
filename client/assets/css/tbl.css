@@ -22,3 +22,11 @@
 	color: hsl(60, 50%, 60%);
 	font-size: 2.4rem;
 }
+
+.tbl-cell_tall {
+    background-color: hsla(234, 46%, 64%, 0.25);
+}
+
+tr > td.tbl-cell_tall {
+	padding: 2rem 0.5rem;
+}

@@ -1,5 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300';
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,9 +12,9 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -24,8 +24,8 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
 	display: block;
 }
 body {
@@ -66,6 +66,10 @@ a {
 li + li {
 	margin-top: 1.6rem;
 }
+.attach_bottom {
+	position: fixed;
+	bottom: 0;
+}
 .answer {
 	font-size: 3.6rem;
 	text-align: center;
@@ -75,6 +79,10 @@ li + li {
 }
 .answer-image {
     max-width: 500px;
+}
+.answer-final {
+	font-size: 1rem;
+    font-family: "Chalkduster", "Roboto";
 }
 .btn {
 	height: 85vh;
@@ -136,6 +144,12 @@ li + li {
 	background-color: hsla(0, 0%, 100%, 0.05);
 	color: hsl(60, 50%, 60%);
 	font-size: 2.4rem;
+}
+.tbl-cell_tall {
+    background-color: hsla(234, 46%, 64%, 0.25);
+}
+tr > td.tbl-cell_tall {
+	padding: 2rem 0.5rem;
 }
 .vList {
 	display: flex;
