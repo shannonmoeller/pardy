@@ -8,9 +8,11 @@
 @import './css/btn.css';
 @import './css/pardy.css';
 @import './css/player.css';
-@import './css/question.css';
 @import './css/tbl.css';
-@import './css/vList.css';
+@import './css/hList.css';
+@import './css/spread.css';
+@import './css/txt.css';
+@import './css/view.css';
 @import './css/vr.css';
 
 @import './css/util.css';

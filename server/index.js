@@ -1,12 +1,12 @@
 'use strict';
 
 const deduce = require('deduce');
-const initialState = require('./games/2016-10-11');
+const initialState = require('./games/2016-10-31');
 
 const game = deduce.composeStore({
 
 	// Configure initial store
-	default(state = initialState) {		
+	default(state = initialState) {
 		return Object.assign({}, state);
 	},
 
@@ -29,14 +29,18 @@ const game = deduce.composeStore({
 	// Add a new player
 	addPlayer(state, data) {
 		const player = state.players[data.id] || {
-			id: data.id,
-			name: data.name,
 			score: 0,
 			finalBet: 0,
 			isFinalBetLockedIn: false,
 			finalQuestion: '',
 			finalQuestionScored: false,
 		};
+
+		Object.assign(player, {
+			id: data.id,
+			name: data.name,
+		});
+
 		const players = Object.assign({}, state.players, {
 			[data.id]: player,
 		});

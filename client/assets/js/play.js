@@ -14,13 +14,15 @@ function render(state) {
 	var isFinalAnswerLockedIn = player.isFinalAnswerLockedIn;
 	var finalAnswer = player.finalAnswer;
 	var localAnswer = localStorage.getItem('pardy.finalAnswer');
-	if(finalAnswer !== localAnswer && localAnswer !== undefined) {
+
+	if (finalAnswer !== localAnswer && localAnswer !== undefined) {
 		finalAnswer = localAnswer
 	}
 
 	var finalBet = player.finalBet;
 	var localBet = localStorage.getItem('pardy.finalBet');
-	if(finalBet !== localBet && localBet !== undefined) {
+
+	if (finalBet !== localBet && localBet !== undefined) {
 		finalBet = localBet;
 	}
 
@@ -29,9 +31,9 @@ function render(state) {
 	}
 
 	// If its final jeopardy
-	if(state.activeRound === 2) {
+	if (state.activeRound === 2) {
 		// if the player has a score of zero or less, the player is disqualified
-		if(score <= 0) {
+		if (score <= 0) {
 			return html`
 				<h1>Sorry, you're going to have to sit this one out.</h1>
 			`;
@@ -42,7 +44,7 @@ function render(state) {
 				<label>Your Bet</label>
 				<input name="changeFinalBet" id="Final_Bet" type="number"  value="${finalBet}" min="0" max="${player.score}" step="100" ${isFinalBetLockedIn && 'disabled'}>
 				<button name="lockInFinalBet" data-playerid="${id}" ${isFinalBetLockedIn && 'disabled'}>Lock In Bet</button>
-			 	<div>Current Score: $${player.score}
+				<div>Current Score: $${player.score}
 			`;
 		// after the final bet is locked in, they are in limbo until the final answer countdown is started at which point
 		// they can enter their answer into the text area provided
@@ -50,7 +52,7 @@ function render(state) {
 			return html`
 				<input type="text" name="changeFinalAnswer" id="Final_Answer" value="${finalAnswer}" ${!state.isFinalStarted && 'disabled'} />
 				<button name="lockInFinalAnswer" ${!state.isFinalStarted && 'disabled'}>Lock in Final Answer</button>
-				<h2 ${state.isFinalStarted && 'style="display:none"'}>Please Wait. Final Webpardy will be starting shortly.</h2>	
+				<h2 ${state.isFinalStarted && 'style="display:none"'}>Please Wait. Final Webpardy will be starting shortly.</h2>
 			`;
 		// When the host conclude
 		} else {
@@ -60,10 +62,16 @@ function render(state) {
 		}
 	} else {
 		return html`
-			<div class="vr" >
+			<div class="vr">
+				<div class="spread txtLg">
+					<div>
+						$${player.name}
+						<button name="changeName">Change</button>
+					</div>
+					<div>$${player.score || '0'}</div>
+				</div>
 				<button class="btn ${id === state.activePlayer && 'btn_yep'}" name="selectPlayer">
-					$${player.name}<br />
-					($${player.score || '0'})
+					Buzzer
 				</button>
 			</div>
 	`;
@@ -87,6 +95,17 @@ function connectPlayer(socket) {
 				type: 'lockInFinalAnswer',
 				id: player.id,
 				finalAnswer: document.getElementById('Final_Answer').value
+			});
+		},
+		changeName(ev) {
+			localStorage.setItem('pardy.player.name', '');
+
+			player = util.getUser('player');
+
+			socket.emit('action', {
+				type: 'addPlayer',
+				id: player.id,
+				name: player.name,
 			});
 		},
 		changeFinalBet(ev) {
@@ -113,21 +132,21 @@ function connectPlayer(socket) {
 
 
 	el.addEventListener('keyup', function (ev) {
-		if(ev.target.name) {
+		if (ev.target.name) {
 			var action = ev.target.name;
 			actions[action](ev);
 		}
 	});
 
 	el.addEventListener('change', function (ev) {
-		if(ev.target.name) {
+		if (ev.target.name) {
 			var action = ev.target.name;
 			actions[action](ev);
 		}
 	});
 
 	el.addEventListener('click', function (ev) {
-		if(ev.target.name) {
+		if (ev.target.name) {
 			var action = ev.target.name;
 			actions[action](ev);
 		}
@@ -142,7 +161,6 @@ function connectPlayer(socket) {
 		id: player.id,
 		name: player.name,
 	});
-
 }
 
 module.exports = connectPlayer;

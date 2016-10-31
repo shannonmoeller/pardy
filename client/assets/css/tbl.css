@@ -20,11 +20,16 @@
 .tbl-cell_fat {
 	background-color: hsla(0, 0%, 100%, 0.05);
 	color: hsl(60, 50%, 60%);
-	font-size: 2.4rem;
+	font-size: 3.2rem;
 }
 
 .tbl-cell_tall {
     background-color: hsla(234, 46%, 64%, 0.25);
+}
+
+.tbl-cell_isActive {
+	background-color: hsl(120, 50%, 60%);
+	color: hsl(0, 0%, 0%);
 }
 
 tr > td.tbl-cell_tall {

@@ -1,5 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300';
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,9 +12,9 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-main, menu, nav, output, ruby, section, summary,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -24,8 +24,8 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, main, menu, nav, section {
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
@@ -52,16 +52,19 @@ table {
 	box-sizing: border-box;
 }
 html {
-	font-size: 1.6vmax;
+	font-size: 1.6vmin;
 }
 body {
 	background-color: hsl(207, 100%, 20%);
 	color: hsl(0, 0%, 100%);
-	font: 400 1.6rem/1.3 'Open Sans Condensed', sans-serif;
+	font: 400 2.4rem/1.3 'Open Sans Condensed', sans-serif;
 	padding: 0;
 }
 a {
 	color: hsl(60, 50%, 60%);
+}
+button {
+	vertical-align: middle;
 }
 li + li {
 	margin-top: 1.6rem;
@@ -81,17 +84,18 @@ li + li {
     max-width: 500px;
 }
 .answer-final {
-	font-size: 1rem;
+	font-size: 2.4rem;
     font-family: "Chalkduster", "Roboto";
 }
 .btn {
-	height: 85vh;
+	height: calc(85vh - 4.8rem);
 	width: 90vw;
 	background-color: hsl(0, 0%, 100%);
 	border: 0;
 	border-radius: 1rem;
+	color: hsla(0, 0%, 50%, 0.2);
 	font-family: inherit;
-	font-size: 3.2rem;
+	font-size: 4.8rem;
 	font-weight: 700;
 }
 .btn:active {
@@ -118,12 +122,6 @@ li + li {
 	bottom: 10%;
 	transform: translateX(-50%);
 }
-.question {
-	position: absolute;
-	left: 50%;
-	bottom: calc(10% + 3rem);
-	transform: translateX(-50%);
-}
 .tbl {
 	width: 100%;
 	border-spacing: 0.5rem;
@@ -143,19 +141,42 @@ li + li {
 .tbl-cell_fat {
 	background-color: hsla(0, 0%, 100%, 0.05);
 	color: hsl(60, 50%, 60%);
-	font-size: 2.4rem;
+	font-size: 3.2rem;
 }
 .tbl-cell_tall {
     background-color: hsla(234, 46%, 64%, 0.25);
 }
+.tbl-cell_isActive {
+	background-color: hsl(120, 50%, 60%);
+	color: hsl(0, 0%, 0%);
+}
 tr > td.tbl-cell_tall {
 	padding: 2rem 0.5rem;
 }
-.vList {
+.hList {
 	display: flex;
+	width: 100%;
 }
-.vList > * + * {
+.hList > * + * {
+	flex: 1 1 30%;
 	margin-left: 3rem;
+}
+.spread {
+	display: flex;
+	justify-content: space-between;
+}
+.txtLg {
+	font-size: 4.8rem;
+}
+.view {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+.view::before {
+	content: '';
 }
 .vr > * + * {
 	margin-top: 3rem;

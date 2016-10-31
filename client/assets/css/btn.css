@@ -1,11 +1,12 @@
 .btn {
-	height: 85vh;
+	height: calc(85vh - 4.8rem);
 	width: 90vw;
 	background-color: hsl(0, 0%, 100%);
 	border: 0;
 	border-radius: 1rem;
+	color: hsla(0, 0%, 50%, 0.2);
 	font-family: inherit;
-	font-size: 3.2rem;
+	font-size: 4.8rem;
 	font-weight: 700;
 }
 
