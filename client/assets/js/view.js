@@ -57,15 +57,15 @@ function render(state) {
 
 					<div class="answer">
 						${state.answers[state.activeAnswer].answerImage != null && html`
-							<div><img class="answer-image" src="${state.answers[state.activeAnswer].answerImage}"></div>
+							<div><img class="answer-image" src="$${state.answers[state.activeAnswer].answerImage}"></div>
 						`}
 
 						${state.answers[state.activeAnswer].answer != null && html`
-							<div>${state.answers[state.activeAnswer].answer}</div>
+							<div>$${state.answers[state.activeAnswer].answer}</div>
 						`}
 
 						${state.revealQuestion && html`
-							<div>${state.answers[state.activeAnswer].question}</div>
+							<div>$${state.answers[state.activeAnswer].question}</div>
 						`}
 					</div>
 				`}

@@ -107,11 +107,11 @@ function render(state) {
 			<!-- Host Controls -->
 			<div>
 				<button name="restart">Restart</button>
-				<button name="increaseRound" ${activeRound === 2 && 'disabled'}>
-					Increase Round
-				</button>
 				<button name="decreaseRound" ${activeRound === 0 && 'disabled'}>
-					Decrease Round
+					Previous Round
+				</button>
+				<button name="increaseRound" ${activeRound === 2 && 'disabled'}>
+					Next Round
 				</button>
 
 				${state.activeAnswer != null && html`
@@ -131,7 +131,15 @@ function render(state) {
 					`}
 
 					<div>
-						${state.answers[state.activeAnswer].question}
+						${state.answers[state.activeAnswer].answerImage != null && html`
+							<div><img width="200" src="$${state.answers[state.activeAnswer].answerImage}"></div>
+						`}
+
+						${state.answers[state.activeAnswer].answer != null && html`
+							<div>$${state.answers[state.activeAnswer].answer}</div>
+						`}
+
+						<div>$${state.answers[state.activeAnswer].question}</div>
 					</div>
 				`}
 			</div>

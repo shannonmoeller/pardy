@@ -14,334 +14,313 @@ module.exports = {
 
     answers: {
         0: {
-            answer: '',
-            answerImage: '',
-            question: '',
+            answer: 'Spiderman',
+            question: 'Who is Peter Parker?',
             score: 200,
             correct: null,
         },
         1: {
-            answer: '',
-            answerImage: '',
-            question: '',
+            answer: 'Superman',
+            question: 'Who is Klark Kent?',
             score: 400,
             correct: null,
         },
         2: {
-            answer: '',
-            answerImage: '',
-            question: '',
+            answer: 'The Riddler',
+            question: 'Who is Edward Nigma?',
             score: 600,
             correct: null,
         },
         3: {
-            answer: '',
-            answerImage: '',
-            question: '',
+            answer: 'Black Widow',
+            question: 'Who is Natasha Romanova?',
             score: 800,
             correct: null,
         },
         4: {
-            answer: '',
-            answerImage: '',
-            question: '',
+            answer: 'Magneto',
+            question: 'Who is Max Eisenhardt?',
             score: 1000,
             correct: null,
         },
 
         5: {
-            answer: '',
-            question: '',
+            answer: 'Frankenstein\'s Monster',
+            question: 'Who is Mary Shelley?',
             score: 200,
             correct: null,
         },
         6: {
-            answer: '',
-            question: '',
+            answer: 'Mr. Hyde',
+            question: 'Who is Robert Louis Stevenson?',
             score: 400,
             correct: null,
         },
         7: {
-            answer: '',
-            question: '',
+            answer: 'The Headless Horseman',
+            question: 'Who is Washington Irving?',
             score: 600,
             correct: null,
-            isDouble: true,
-            isBetLockedIn: false
         },
         8: {
-            answer: '',
-            question: '',
+            answer: 'Pennywise',
+            question: 'Who is Stephen King?',
             score: 800,
             correct: null,
         },
         9: {
-            answer: '',
-            question: '',
+            answer: 'Dracula',
+            question: 'Who is Bram Stoker?',
             score: 1000,
             correct: null,
         },
 
         10: {
-            answer: '',
-            question: '',
+            answer: 'This attribute is required for <img /> tags, even if it\'s value is empty.',
+            question: 'What is the "alt" attribute?',
             score: 200,
             correct: null,
         },
         11: {
-            answer: '',
-            question: '',
+            answer: 'The <li> tag is the only vaild child of what two elements?',
+            question: 'What are <ul> and <ol>?',
             score: 400,
             correct: null,
         },
         12: {
-            answer: '',
-            question: '',
+            answer: 'This child of <figure> is only valid when it\'s the first or last element.',
+            question: 'What is <figcaption>?',
             score: 600,
             correct: null,
         },
         13: {
-            answer: '',
-            question: '',
+            answer: 'This is the shortest valid HTML 5 file.',
+            question: '<!doctype html><title>a</title>',
             score: 800,
             correct: null,
+            isDouble: true,
+            isBetLockedIn: false
         },
         14: {
-            answer: '',
-            question: '',
+            answer: 'Placing this tag somewhere after the first 256 bytes can break sites for foreign users.',
+            question: 'What is <meta charset="uft-8" />?',
             score: 1000,
             correct: null,
         },
 
         15: {
-            answer: '',
-            question: '',
+            answer: 'Jack-o-lanterns were first carved in this country.',
+            question: 'What is Ireland?',
             score: 200,
             correct: null,
         },
         16: {
-            answer: '',
-            question: '',
+            answer: 'This equestrian has been depicted carrying a Jack-o-lantern in place of a missing portion of his body.',
+            question: 'Who is The Headless Horseman?',
             score: 400,
             correct: null,
         },
         17: {
-            answer: '',
-            question: '',
+            answer: 'Jack-o-lanterns were originally created by carving a lantern from this tuber.',
+            question: 'What is a turnip?',
             score: 600,
             correct: null,
         },
         18: {
-            answer: '',
-            question: '',
+            answer: 'This creative game allows you to grow pumpkins and wear one as a mask, turning yourself into a Jack-o-lantern.',
+            question: 'What is Minecraft?',
             score: 800,
             correct: null,
         },
         19: {
-            answer: '',
-            question: '',
+            answer: 'Also known as this, Jack-o-lanterns are named after the phenomenon of a strange light flickering over peat bogs.',
+            question: 'What is will-o-the-wisp?',
             score: 1000,
             correct: null,
         },
 
         20: {
-            answer: '',
-            question: '',
+            answer: 'Microsoft released IE6 in this year when IE 5.x had 80% marketshare.',
+            question: 'What is 2001?',
             score: 200,
             correct: null,
         },
         21: {
-            answer: '',
-            question: '',
+            answer: 'IE6 introduced this mode to maximize compatibility with old or poorly-coded web pages.',
+            question: 'What is quirks mode?',
             score: 400,
             correct: null,
         },
         22: {
-            answer: '',
-            question: '',
+            answer: 'Market share for this version of IE finally dropped below 1% in 2004.',
+            question: 'What is IE4?',
             score: 600,
             correct: null,
         },
         23: {
-            answer: '',
-            question: '',
+            answer: 'The "star hack" allowed you to specify a CSS property targeting this version of IE and below.',
+            question: 'What is IE7?',
             score: 800,
             correct: null,
         },
         24: {
-            answer: '',
-            question: '',
+            answer: 'Official support for IE 11 will expire along with Windows 10 in this year.',
+            question: 'What is 2025?',
             score: 1000,
             correct: null,
         },
 
         25: {
-            answer: '',
-            question: '',
+            answer: 'Humans have been chewing this candy in some form for at least 100,000 years.',
+            question: 'What is gum?',
             score: 200,
             correct: null,
         },
         26: {
-            answer: '',
-            question: '',
+            answer: 'This three-colored confection is also popular during Thanksgiving and tastes nothing like its namesake.',
+            question: 'What is candy corn?',
             score: 400,
             correct: null,
         },
         27: {
-            answer: '',
-            question: '',
+            answer: 'People trick-or-treat in hoity-toity neighborhoods hoping to score full-sized versions of these.',
+            question: 'What are candy bars?',
             score: 600,
             correct: null,
         },
         28: {
-            answer: '',
-            question: '',
+            answer: 'Still in mass production today, these were the first wrapped penny candy in America.',
+            question: 'What are Toosie Rolls?',
             score: 800,
             correct: null,
         },
         29: {
-            answer: '',
-            question: '',
+            answer: 'The best way to loose Facebook friends is to invite them to play this match-three puzzle game.',
+            question: 'What is Candy Crush Saga?',
             score: 1000,
             correct: null,
         },
 
         30: {
-            answer: '',
-            question: '',
+            answer: 'Bruce Banner',
+            question: 'Who is The Hulk?',
             score: 400,
             correct: null,
         },
-
         31: {
-            answer: '',
-            question: '',
+            answer: 'Bruce Wane',
+            question: 'Who is Batman?',
             score: 800,
             correct: null,
         },
-
         32: {
-            answer: '',
-            question: '',
+            answer: 'Harvey Dent',
+            question: 'Who is Two Face?',
             score: 1200,
             correct: null,
         },
-
         33: {
-            answer: '',
-            question: '',
+            answer: 'Hank Pym',
+            question: 'Who is Ant-Man?',
             score: 1600,
             correct: null,
         },
-
         34: {
-            answer: '',
-            question: '',
+            answer: 'Carol Danvers',
+            question: 'Who is Captain Marvel?',
             score: 2000,
             correct: null,
         },
 
         35: {
-            answer: '',
-            question: '',
+            answer: 'Phobophobia',
+            question: 'What is the fear of phobias?',
             score: 400,
             correct: null,
         },
-
         36: {
-            answer: '',
-            question: '',
+            answer: 'Triskaidekaphobia',
+            question: 'What is the fear of the number 13?',
             score: 800,
             correct: null,
         },
-
         37: {
-            answer: '',
-            question: '',
+            answer: 'Barophobia',
+            question: 'What is the fear of gravity?',
             score: 1200,
             correct: null,
         },
-
         38: {
-            answer: '',
-            question: '',
+            answer: 'Lygophobia',
+            question: 'What is the fear of darkness?',
             score: 1600,
             correct: null,
         },
-
         39: {
-            answer: '',
-            question: '',
+            answer: 'Samhainopobia',
+            question: 'What is the fear of Halloween?',
             score: 2000,
             correct: null,
         },
 
         40: {
-            answer: '',
-            question: '',
+            answer: 'The initial "display" value of a <div> element.',
+            question: 'What is "block"?',
             score: 400,
             correct: null,
         },
-
         41: {
-            answer: '',
-            question: '',
+            answer: 'The initial "background-repeat" value.',
+            question: 'What is "repeat"?',
             score: 800,
             correct: null,
         },
-
         42: {
-            answer: '',
-            question: '',
+            answer: 'The initial "animation-timing-function" value.',
+            question: 'What is "ease"?',
             score: 1200,
             correct: null,
         },
-
         43: {
-            answer: '',
-            question: '',
+            answer: 'The initial "perspective-origin" value.',
+            question: 'What is "50% 50%"?',
             score: 1600,
             correct: null,
         },
-
         44: {
-            answer: '',
-            question: '',
+            answer: 'The initial "left" value.',
+            question: 'What is "auto"?',
             score: 2000,
             correct: null,
         },
 
         45: {
-            answer: '',
-            question: '',
+            answer: 'Na na na na na na na na na na na na na na na na...',
+            question: 'What is Batman?',
             score: 400,
             correct: null,
         },
-
         46: {
-            answer: '',
-            question: '',
+            answer: 'They\'re creepy and they\'re kooky.',
+            question: 'Who is the Addams Family?',
             score: 800,
             correct: null,
         },
-
         47: {
-            answer: '',
-            question: '',
+            answer: 'In this series, Samantha attempts to live life as a housewife without the use of her powers.',
+            question: 'What is Bewitched?',
             score: 1200,
             correct: null,
         },
-
         48: {
-            answer: '',
-            question: '',
+            answer: 'Frankenstein played the father figure in this series.',
+            question: 'What is The Munsters?',
             score: 1600,
             correct: null,
         },
-
         49: {
-            answer: '',
-            question: '',
+            answer: 'You are now entering...',
+            question: 'What is The Twilight Zone?',
             score: 2000,
             correct: null,
         },
@@ -352,28 +331,24 @@ module.exports = {
             score: 400,
             correct: null,
         },
-
         51: {
             answer: '',
             question: '',
             score: 800,
             correct: null,
         },
-
         52: {
             answer: '',
             question: '',
             score: 1200,
             correct: null,
         },
-
         53: {
             answer: '',
             question: '',
             score: 1600,
             correct: null,
         },
-
         54: {
             answer: '',
             question: '',
@@ -382,111 +357,106 @@ module.exports = {
         },
 
         55: {
-            answer: '',
-            question: '',
+            answer: 'This previously-useless reserved word is now a simpler way to implement inheritance.',
+            question: 'What is "class"?',
             score: 400,
             correct: null,
         },
-
         56: {
-            answer: '',
-            question: '',
+            answer: 'These marks are used to indicate a new type of string literal that allows interpolation.',
+            question: 'What are backticks?',
             score: 800,
             correct: null,
         },
-
         57: {
-            answer: '',
-            question: '',
+            answer: 'This new function syntax binds the value of `this` automatically.',
+            question: 'What is fat-arrow syntax?',
             score: 1200,
             correct: null,
         },
-
         58: {
-            answer: '',
-            question: '',
+            answer: 'Microsoft was the first browser vendor to ship support for this keyword used to include one script from another.',
+            question: 'What is "import"?',
             score: 1600,
             correct: null,
         },
-
         59: {
-            answer: '',
-            question: '',
+            answer: 'You may now destructure an array using these marks on the left hand of an assignment.',
+            question: 'What are square brackets?',
             score: 2000,
             correct: null,
         },
 
         60: {
-            answer: '',
-            question: '',
+            answer: 'Dracula is based on this real-life 15th-century ruler of Wallachia.',
+            question: 'Who is Vlad the Impaler?',
             score: 2000,
             correct: null,
         },
-
     },
     categories: [
         {
-            label: '',
+            label: 'Secret Identity',
             answerIds: [0, 1, 2, 3, 4],
             round: 0
         },
         {
-            label: '',
+            label: 'Monstrous Authors',
             answerIds: [5, 6, 7, 8, 9],
             round: 0
         },
         {
-            label: '',
+            label: 'H-T-M-Hell',
             answerIds: [10, 11, 12, 13, 14],
             round: 0
         },
         {
-            label: '',
+            label: 'Jack-o-lanterns',
             answerIds: [15, 16, 17, 18, 19],
             round: 0
         },
         {
-            label: '',
+            label: 'IE',
             answerIds: [20, 21, 22, 23, 24],
             round: 0
         },
         {
-            label: '',
+            label: 'Candy',
             answerIds: [25, 26, 27, 28, 29],
             round: 0
         },
         {
-            label: '',
+            label: 'Alter Ego',
             answerIds: [30, 31, 32, 33, 34],
             round: 1
         },
         {
-            label: '',
+            label: 'Phobias',
             answerIds: [35, 36, 37, 38, 39],
             round: 1
         },
         {
-            label: '',
+            label: 'Initial CSS',
             answerIds: [40, 41, 42, 43, 44],
             round: 1
         },
         {
-            label: '',
+            label: '60\'s TV',
             answerIds: [45, 46, 47, 48, 49],
             round: 1
         },
         {
-            label: '',
+            label: 'Fast Click',
             answerIds: [50, 51, 52, 53, 54],
             round: 1
         },
         {
-            label: '',
+            label: 'JavaSugar',
             answerIds: [55, 56, 57, 58, 59],
             round: 1
         },
         {
-            label: '',
+            label: 'Vampire Lore',
             answerIds: [60],
             round: 2
         },

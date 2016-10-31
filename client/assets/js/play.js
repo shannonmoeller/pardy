@@ -44,13 +44,13 @@ function render(state) {
 				<label>Your Bet</label>
 				<input name="changeFinalBet" id="Final_Bet" type="number"  value="${finalBet}" min="0" max="${player.score}" step="100" ${isFinalBetLockedIn && 'disabled'}>
 				<button name="lockInFinalBet" data-playerid="${id}" ${isFinalBetLockedIn && 'disabled'}>Lock In Bet</button>
-				<div>Current Score: $${player.score}
+				<div>Current Score: $${player.score}</div>
 			`;
 		// after the final bet is locked in, they are in limbo until the final answer countdown is started at which point
 		// they can enter their answer into the text area provided
 		} else if (!state.isFinalEnded && !isFinalAnswerLockedIn) {
 			return html`
-				<input type="text" name="changeFinalAnswer" id="Final_Answer" value="${finalAnswer}" ${!state.isFinalStarted && 'disabled'} />
+				<input type="text" name="changeFinalAnswer" id="Final_Answer" value="$${finalAnswer}" ${!state.isFinalStarted && 'disabled'} />
 				<button name="lockInFinalAnswer" ${!state.isFinalStarted && 'disabled'}>Lock in Final Answer</button>
 				<h2 ${state.isFinalStarted && 'style="display:none"'}>Please Wait. Final Webpardy will be starting shortly.</h2>
 			`;
