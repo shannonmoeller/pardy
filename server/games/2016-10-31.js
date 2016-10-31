@@ -99,7 +99,7 @@ module.exports = {
             score: 800,
             correct: null,
             isDouble: true,
-            isBetLockedIn: false
+            isBetLockedIn: false,
         },
         14: {
             answer: 'Placing this tag somewhere after the first 256 bytes can break sites for foreign users.',
@@ -280,6 +280,8 @@ module.exports = {
             question: 'What is "ease"?',
             score: 1200,
             correct: null,
+            isDouble: true,
+            isBetLockedIn: false,
         },
         43: {
             answer: 'The initial "perspective-origin" value.',
