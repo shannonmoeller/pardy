@@ -381,7 +381,7 @@ module.exports = {
             correct: null,
         },
         57: {
-            answer: 'This comedian does a "terrible impression", according to the president-elect's Twitter handle.',
+            answer: 'This comedian does a "terrible impression", according to the president-elect\'s Twitter handle.',
             question: 'Alec Baldwin',
             score: 1200,
             correct: null,
