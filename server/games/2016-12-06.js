@@ -195,7 +195,7 @@ module.exports = {
             correct: null,
         },
         28: {
-            answer: 'You float like a feather, In a beautiful world, I wish I was special, You're so fuckin' special',
+            answer: 'You float like a feather, In a beautiful world, I wish I was special, You\'re so %!*&$ special',
             question: 'What is Creep?',
             score: 800,
             correct: null,
