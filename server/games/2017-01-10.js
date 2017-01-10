@@ -286,7 +286,7 @@ module.exports = {
             correct: null,
         },
         42: {
-            answer: "Split screen, first person shooter. You're a spy."
+            answer: "Split screen, first person shooter. You're a spy.",
             question: 'What is GoldenEye 007?',
             score: 1200,
             correct: null,
