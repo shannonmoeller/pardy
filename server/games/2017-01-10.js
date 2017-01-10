@@ -143,7 +143,7 @@ module.exports = {
 
         20: {
             answer: '',
-            answerImage: '../assets/media/images/2017-01-10/wendy.png',
+            answerImage: '../assets/media/images/2017-01-10/wendy.jpg',
             question: "What is Wendys?",
             score: 200,
             correct: null,
