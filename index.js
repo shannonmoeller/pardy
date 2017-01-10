@@ -38,7 +38,7 @@ const port = process.env.PORT || 3000;
 
 // serve static
 // .use Mounts the specified middleware function or functions at the specified path. If path is not specified, it defaults to “/”.
-app.use(express.static(path.join(__dirname, root)));
+app.use(express.static(root));
 
 // ???
 app.use(history('index.html', { root }));
