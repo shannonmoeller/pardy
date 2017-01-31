@@ -22,6 +22,15 @@ Websocket-based trivia game.
 - Host: http://localhost:3000/host
 - View: http://localhost:3000/view
 
+# Deployment
+
+I recommend deploying with [Heroku](https://www.heroku.com). I'd rather use [now.sh](https://now.sh), but that has had some serious performance issues with deploying and websockets (as of 2016-01-31).
+
+1. Create a [Heroku](https://www.heroku.com) account (the free tier works great).
+2. Install the [Heroku CLI](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up).
+2. Clone this repo.
+3. From within the repo directory, [deploy the app](https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app).
+
 ----
 
 © Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)
