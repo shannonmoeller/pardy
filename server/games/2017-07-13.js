@@ -64,8 +64,6 @@ module.exports = {
             question: "Netscape",
             score: 600,
             correct: null,
-            isDouble: true,
-            isBetLockedIn: false
         },
         8: {
 			answer: "",
@@ -107,7 +105,7 @@ module.exports = {
             correct: null,
         },
         14: {
-            answer: 'New Glaurus',
+            answer: 'New Glarus',
             question: 'Wisconsin',
             score: 1000,
             correct: null,
@@ -135,13 +133,13 @@ module.exports = {
         18: {
             answer: "As I walk through the valley of the shadow of death.\n I take a look at my life and realize there's nothin' left",
             question: "Gangsta's Paradise by Coolio",
-            score: 1000,
+            score: 800,
             correct: null,
         },
         19: {
             answer: "Chickity China the Chinese chicken.\n You have a drumstick and your brain stops tickin'",
             question: 'One Week by the Barenaked Ladies',
-            score: 800,
+            score: 1000,
             correct: null,
         },
 
@@ -220,19 +218,21 @@ module.exports = {
             correct: null,
         },
         32: {
-            answer: 'Instances of this data type are unique, useful for creating private object properties',
-            question: 'Symbol',
+            answer: 'This new special object stores a collection of unique values',
+            question: 'Set',
             score: 1200,
             correct: null,
         },
-        33: {
-            answer: 'This new special object stores a collection of unique values',
-            question: 'Set',
+		33: {
+            answer: 'Instances of this data type are unique, useful for creating private object properties',
+            question: 'Symbol',
             score: 1600,
             correct: null,
+			isDouble: true,
+            isBetLockedIn: false
         },
         34: {
-            answer: 'This new special object allows you to use functions, objects, and primitives as keys',
+            answer: 'This new special object you to use functions, objects, and primitives as keys',
             question: 'Map',
             score: 2000,
             correct: null,
@@ -321,6 +321,8 @@ module.exports = {
             question: 'Rabbit',
             score: 1200,
             correct: null,
+			isDouble: true,
+            isBetLockedIn: false
         },
         48: {
             answer: 'Tennessee Walker',
@@ -334,84 +336,12 @@ module.exports = {
             score: 2000,
             correct: null,
         },
-
-
-        50: {
-            answer: 'Tinky Winky',
-            question: 'Telletubies',
-            score: 400,
-            correct: null,
-        },
-        51: {
-            answer: 'Features an 8-foot 2-inch tall yellow Canary',
-            question: 'Sesame Street',
-            score: 800,
-            correct: null,
-        },
-        52: {
-            answer: 'This sport originally played with such things as inflated pig bladder.',
-            question: 'Football',
-            score: 1200,
-            correct: null,
-        },
-        53: {
-            answer: "Having fun isn't hard, when you have a library card",
-            question: 'Arthur',
-            score: 1600,
-            correct: null,
-        },
-        54: {
-            answer: 'Two brothers with a very, very messy closet',
-            question: 'Zoboomafoo or Kratt Brothers',
-            score: 2000,
-            correct: null,
-        },
-
-
-        55: {
-            answer: '',
-            question: 'Papyrus',
-            answerImage: '../assets/media/images/2017-01-10/papyrus.png',
-            score: 400,
-            correct: null,
-        },
-        56: {
-            answer: '',
-            question: 'Chalkboard',
-            answerImage: '../assets/media/images/2017-01-10/chalkboard.jpg',
-            score: 800,
-            correct: null,
-        },
-        57: {
-            answer: '',
-            question: 'Curlz MT',
-            answerImage: '../assets/media/images/2017-01-10/CurlzMT.gif',
-            score: 1200,
-            correct: null,
-        },
-        58: {
-            answer: '',
-            question: 'Trojan',
-            answerImage: '../assets/media/images/2017-01-10/trojan.png',
-            score: 1600,
-            correct: null,
-        },
-        59: {
-            answer: '',
-            question: 'Copperplate Gothic',
-            answerImage: '../assets/media/images/2017-01-10/CopperplateGothic.png',
-            score: 2000,
-            correct: null,
-        },
-
-
-
-        60: {
-            answer: "Jacob Bernoulli's most important contribution was in this field",
-            question: 'Probability (law of large numbers)',
-            score: 2000,
-            correct: null,
-        },
+		50: {
+			answer: "In 1966 this company produced 706 million elements of its product; by 2016, it had produced over 560 billion.",
+			question: 'Lego',
+			correct: null,
+			score: 2000
+		}
     },
     categories: [
         {
@@ -464,19 +394,9 @@ module.exports = {
             answerIds: [45, 46, 47, 48, 49],
             round: 1
         },
-        // {
-        //     label: '',
-        //     answerIds: [50, 51, 52, 53, 54],
-        //     round: 1
-        // },
-        // {
-        //     label: '',
-        //     answerIds: [55, 56, 57, 58, 59],
-        //     round: 1
-        // },
         {
-            label: 'Final Yo',
-            answerIds: [60],
+            label: 'Toy Brands',
+            answerIds: [50],
             round: 2
         },
     ],
