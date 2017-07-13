@@ -1,7 +1,7 @@
 'use strict';
 
 const deduce = require('deduce');
-const initialState = require('./games/2017-01-10');
+const initialState = require('./games/2017-07-13');
 
 const game = deduce.composeStore({
 
@@ -83,6 +83,12 @@ const game = deduce.composeStore({
 
 		return Object.assign({}, state, {
 			activePlayer: data.id,
+		});
+	},
+
+	deselectPlayer(state, data) {
+		return Object.assign({}, state, {
+			activePlayer: null,
 		});
 	},
 

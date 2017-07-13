@@ -122,6 +122,7 @@ function render(state) {
 							${state.activePlayer && html`
 								<button name="correct" value="1">Right</button>
 								<button name="correct" value="0">Wrong</button>
+								<button name="deselectPlayer">Deselect Player</button>
 							`}
 
 							${!state.activePlayer && html`
@@ -230,6 +231,11 @@ function connectHost(socket) {
 		showFinalScores: function () {
 			socket.emit('action', {
 				type: 'showFinalScores',
+			});
+		},
+		deselectPlayer: function () {
+			socket.emit('action', {
+				type: 'deselectPlayer',
 			});
 		},
 	};
