@@ -224,13 +224,13 @@ module.exports = {
 
         35: {
             answer: '{} + {} = ?',
-            question: 'NaN',
+            question: '[object Object][object Object] (or NaN)'
             score: 400,
             correct: null,
         },
         36: {
             answer: "[] + [] =",
-            question: "\"\"",
+            question: '""',
             score: 800,
             correct: null,
         },
@@ -321,7 +321,6 @@ module.exports = {
 			score: 2000
 		}
 	},
-	dailyDoubleAnswerIds: [10, 33, 47],
     categories: [
         {
             label: 'this == that‽',
@@ -378,5 +377,6 @@ module.exports = {
             answerIds: [50],
             round: 2
         },
-    ],
+	],
+	dailyDoubleAnswerIds: [19, 33, 47],
 };
