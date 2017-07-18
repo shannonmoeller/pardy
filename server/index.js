@@ -1,7 +1,22 @@
 'use strict';
 
 const deduce = require('deduce');
-const initialState = require('./games/2017-07-13');
+const triviaState = require('./games/2017-07-13');
+const gameState = {
+    host: null,
+	activePlayer: null,
+	players: {},
+    revealQuestion: false,
+    activeAnswer: null,
+	activeRound: 0,
+	isBetLockedIn: false,
+    isFinal: false,
+    isFinalStarted: false,
+    isFinalEnded: false,
+	isFinalScored: false,
+};
+
+const initialState = Object.assign({}, triviaState, gameState);
 
 const game = deduce.composeStore({
 
@@ -123,15 +138,12 @@ const game = deduce.composeStore({
 		}
 
 		const answer = state.answers[activeAnswer];
-		const localAnswer = Object.assign({}, answer, {
-			isBetLockedIn
-		});
-
 		const answers = Object.assign({}, state.answers, {
-			[activeAnswer]: localAnswer
+			[activeAnswer]: answer
 		});
 
 		return Object.assign({}, state, {
+			isBetLockedIn,
 			answers,
 		});
 	},
@@ -159,7 +171,7 @@ const game = deduce.composeStore({
 			isFinalAnswerLockedIn: true,
 			finalAnswer: data.finalAnswer
 		});
-		const players =  Object.assign({}, state.players, {
+		const players = Object.assign({}, state.players, {
 			[data.id]: localPlayer,
 		});
 		return Object.assign({}, state, {
@@ -197,6 +209,7 @@ const game = deduce.composeStore({
 				revealQuestion: false,
 				activeAnswer: null,
 				activePlayer: null,
+				isBetLockedIn: false,
 				answers,
 			});
 		}
@@ -214,6 +227,7 @@ const game = deduce.composeStore({
 			revealQuestion: false,
 			activeAnswer: correct ? null : activeAnswer,
 			activePlayer: null,
+			isBetLockedIn: false,
 			answers,
 			players,
 		});

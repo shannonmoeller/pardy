@@ -10,13 +10,13 @@ function render(state) {
 	var activeAnswer = state.activeAnswer;
 	var answers = state.answers;
 	var players = state.players;
+
 	var isFinalStarted = state.isFinalStarted;
 	var isFinalEnded = state.isFinalEnded;
 	var isFinalScored = state.isFinalScored;
-
-	// If not final jeopardy
 	if (activeRound < 2) {
 		return html`
+		${console.log(state)}
 			<div class="view">
 				${activeAnswer == null && html`
 					<table class="tbl">
@@ -47,10 +47,10 @@ function render(state) {
 
 				${activeAnswer != null
 					&& (
-						!state.answers[activeAnswer].isDouble
+						!state.dailyDoubleAnswerIds.includes(activeAnswer)
 						|| (
-							state.answers[activeAnswer].isDouble
-							&& state.answers[activeAnswer].isBetLockedIn
+							state.dailyDoubleAnswerIds.includes(activeAnswer)
+							&& state.isBetLockedIn
 						)
 					)
 					&& html`
@@ -66,17 +66,24 @@ function render(state) {
 
 						${state.revealQuestion && html`
 							<div>$${state.answers[state.activeAnswer].question}</div>
+							<!-- if there is no active player, time ran out.  Play the error noise -->
+							${state.activePlayer === null && html`<audio autoplay>
+								<source src="assets/media/audio/jtime.wav" type="audio/wav">
+							</audio>`}
 						`}
 					</div>
 				`}
 
 				${activeAnswer != null
-					&& state.answers[activeAnswer].isDouble
-					&& !state.answers[activeAnswer].isBetLockedIn
+					&& state.dailyDoubleAnswerIds.includes(activeAnswer)
+					&& !state.isBetLockedIn
 					&& html`
 
 					<div class="answer">
-						Double Webpardy!<br/>
+						<audio autoplay>
+							<source src="assets/media/audio/daily-double.mp3" type="audio/mp3">
+						</audio>
+						<img src="assets/media/images/game/daily-double-1.png" class="dailyDoubleImg">
 					</div>
 				`}
 
@@ -130,9 +137,21 @@ function render(state) {
 			<!--answer is revealed-->
 			${activeAnswer != null &&
 				!isFinalEnded && html`
+					<audio autoplay>
+					<source src="assets/media/audio/jfinalj.wav" type="audio/wav">
+				</audio>
 				<div class="answer">
 					${state.answers[state.activeAnswer].answer}
 				</div>
+			`}
+
+			<!-- players bets are locked in, final is officially started -->
+			${activeAnswer != null &&
+				!isFinalEnded &&
+				isFinalStarted && html`
+				<audio autoplay>
+					<source src="assets/media/audio/song.mp3" type="audio/mp3">
+				</audio>
 			`}
 
 			<!-- Host is Scoring final round -->

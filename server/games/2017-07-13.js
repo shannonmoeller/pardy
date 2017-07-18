@@ -1,17 +1,4 @@
 module.exports = {
-    host: null,
-
-    activePlayer: null,
-    players: {},
-
-    revealQuestion: false,
-    activeAnswer: null,
-    activeRound: 0,
-    isFinal: false,
-    isFinalStarted: false,
-    isFinalEnded: false,
-    isFinalScored: false,
-
     answers: {
         0: {
             answer: "1 == true",
@@ -111,7 +98,6 @@ module.exports = {
             correct: null,
         },
 
-
         15: {
             answer: "Yo, I'll tell you what I want, what I really, really want.\n So tell me what you want, what you really, really want",
             question: 'Wannabe by The Spice Girls',
@@ -181,20 +167,20 @@ module.exports = {
             correct: null,
         },
         26: {
-            answer: "Hey girl… this guy got an Oscar nomination for La La Land",
-            question: 'Ryan Gosling',
+            answer: "King of the comic-book movies, he directed 300 and Superman",
+            question: 'Zack Snyder',
             score: 400,
             correct: null,
         },
-        27: {
-            answer: "King of the comic-book movies, he directed 300 and Superman",
-            question: 'Zack Snyder',
+		27: {
+            answer: "She's known for her portrayal on Superstar Mary Katherine Gallagher on SNL.",
+            question: 'Molly Shannon',
             score: 600,
             correct: null,
         },
         28: {
-            answer: "He's a Hall-of-fame tight-end and football commentator who once played for the Broncos and Ravens",
-            question: 'Shannon Sharpe',
+            answer: "This quarterback lost in the Super Bowl to Tom Brady",
+            question: 'Matt Ryan',
             score: 800,
             correct: null,
         },
@@ -228,8 +214,6 @@ module.exports = {
             question: 'Symbol',
             score: 1600,
             correct: null,
-			isDouble: true,
-            isBetLockedIn: false
         },
         34: {
             answer: 'This new special object you to use functions, objects, and primitives as keys',
@@ -237,8 +221,6 @@ module.exports = {
             score: 2000,
             correct: null,
         },
-
-
 
         35: {
             answer: '{} + {} = ?',
@@ -265,8 +247,8 @@ module.exports = {
             correct: null,
         },
         39: {
-            answer: "Array(8).join('wat' - 1) + ' Batman!'",
-            question: "\"NaNNaNNaNNaNNaNNaNNaN Batman!\"",
+            answer: "Array(8).join('wat' - 1) + ' Watman!'",
+            question: "\"NaNNaNNaNNaNNaNNaNNaN Watman!\"",
             score: 2000,
             correct: null,
         },
@@ -277,7 +259,6 @@ module.exports = {
             score: 400,
             correct: null,
         },
-
         41: {
             answer: 'Mike Sawicki',
             question: 'Ohio',
@@ -303,7 +284,6 @@ module.exports = {
             correct: null,
         },
 
-
         45: {
             answer: 'Dogue De Bordeaux',
             question: 'Dog',
@@ -321,8 +301,6 @@ module.exports = {
             question: 'Rabbit',
             score: 1200,
             correct: null,
-			isDouble: true,
-            isBetLockedIn: false
         },
         48: {
             answer: 'Tennessee Walker',
@@ -342,10 +320,11 @@ module.exports = {
 			correct: null,
 			score: 2000
 		}
-    },
+	},
+	dailyDoubleAnswerIds: [10, 33, 47],
     categories: [
         {
-            label: 'this == that?',
+            label: 'this == that‽',
             answerIds: [0, 1, 2, 3, 4],
             round: 0
         },
@@ -380,7 +359,7 @@ module.exports = {
             round: 1
         },
         {
-            label: 'Watman',
+            label: 'WAT o_O',
             answerIds: [35, 36, 37, 38, 39],
             round: 1
         },

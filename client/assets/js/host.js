@@ -11,6 +11,7 @@ function render(state) {
 	var activeRound = state.activeRound;
 	var activeCategories = categories.filter(function (cat) { return cat.round === activeRound; });
 	var activeAnswer = state.activeAnswer;
+	var dailyDoubleAnswerIds = state.dailyDoubleAnswerIds;
 	var isFinalStarted = state.isFinalStarted;
 	var isFinalEnded = state.isFinalEnded;
 	var isFinalScored = state.isFinalScored;
@@ -30,10 +31,11 @@ function render(state) {
 											<button name="answer" value="${id}"
 												${answers[id].correct != null && 'disabled'}>
 												$${answers[id].score || '0'}
-												$${answers[id].isDouble && html`*`}
+												$${dailyDoubleAnswerIds.includes(id) && html`*`}
 											</button>
+
 											<!-- Show input and button for Daily Double Bet -->
-											${id === activeAnswer && answers[id].isDouble && !answers[id].isBetLockedIn &&
+											${id === activeAnswer && dailyDoubleAnswerIds.includes(id) && !state.isBetLockedIn &&
 												html`
 													<input name="changeDoubleBet" data-answerid="${id}" type="number" value="${answers[id].score}" min="0" step="100">
 													<button name="lockInDoubleBet">Lock In Bet</button>
@@ -51,9 +53,6 @@ function render(state) {
 											<button name="endFinal" ${(isFinalEnded || !isFinalStarted) && 'disabled'}>
 												End Final Webpardy
 											</button><br/>
-											<audio ${(activeAnswer !== null || !isFinalStarted) && 'controls'}>
-												<source src="assets/media/audio/song.mp3" type="audio/mp3">
-											</audio>
 										`
 									}
 								})}

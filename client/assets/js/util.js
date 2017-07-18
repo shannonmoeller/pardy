@@ -60,7 +60,15 @@ exports.htmlEscape = function (str) {
 };
 
 exports.render = function (el, html) {
+
 	morphdom(el, `<div>${html.trim()}</div>`, {
 		childrenOnly: true,
+		onBeforeElUpdated: function(fromEl, toEl) {
+			if (fromEl.tagName === 'AUDIO') {
+				fromEl.removeAttribute('autoplay')
+				toEl.removeAttribute('autoplay')
+			}
+			return true
+		},
 	});
 };
