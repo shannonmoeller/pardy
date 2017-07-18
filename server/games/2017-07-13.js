@@ -224,7 +224,7 @@ module.exports = {
 
         35: {
             answer: '{} + {} = ?',
-            question: '[object Object][object Object] (or NaN)'
+            question: '[object Object][object Object] (or NaN)',
             score: 400,
             correct: null,
         },
