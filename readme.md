@@ -13,6 +13,7 @@ Websocket-based trivia game.
 # Installation
 
     $ git clone https://github.com/shannonmoeller/pardy.git
+    $ cd pardy
     $ npm install
     $ npm start
 
