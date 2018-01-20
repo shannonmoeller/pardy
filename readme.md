@@ -1,4 +1,4 @@
-# `pardy`
+# pardy
 
 [![NPM version][npm-img]][npm-url] [![Downloads][downloads-img]][npm-url]
 
@@ -33,9 +33,7 @@ I recommend deploying with [Heroku](https://www.heroku.com). I'd rather use [now
 
 ----
 
-© Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)
-
-Licensed under [MIT](http://shannonmoeller.com/mit.txt)
+MIT © [Shannon Moeller](http://shannonmoeller.com)
 
 [downloads-img]: http://img.shields.io/npm/dm/pardy.svg?style=flat-square
 [npm-img]:       http://img.shields.io/npm/v/pardy.svg?style=flat-square
